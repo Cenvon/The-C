@@ -4,7 +4,7 @@
 #include "pch.h"
 #include <iostream>
 
-int plus(int a, int b) {
+int sum(int a, int b) {
 	return a + b;
 }
 int main()
@@ -12,7 +12,7 @@ int main()
 	int a, b,k;
 	printf("input a,b\n");
 	scanf_s("%d%d", &a, &b);
-	k = plus(a ,b);
+	k = sum(a ,b);
 	printf("The sum is %d",k);
 	
 }
