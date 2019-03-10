@@ -18,57 +18,57 @@ public:
 
 class LinkList {
 public:
-	LinkList();//¹¹½¨Ò»¸öµ¥Á´±í
-	~LinkList();//Ïú»ÙÒ»¸öµ¥Á´±í
-	void CreatList(int n);//´´½¨Ò»¸öµ¥Á´±í
-	void TravelList();//±ãÀûµ¥Á´±í
-	int GetLength();//»ñÈ¡ÏßĞÔ±í³¤¶È
-	bool IsEmpty();//ÅĞ¶ÏÁ´±íÊÇ·ñÎª¿Õ
-	ElemType * Find(DataType data);//²éÕÒ½áµã
-	void InsertAtEnd(DataType data);//Î²²¿²åÈë
-	void InsertAtHead(DataType data);//Ê×²¿²åÈë
-	void InsertAtIndex(DataType data,int n);//Ö¸¶¨Î»ÖÃ²åÈë
-	void DeleteAtEnd();//ÔÚÎ²²¿É¾³ıÔªËØ
-	void DeleteAll();//É¾³ıÈ«²¿ÔªËØ
-	void DeleteAtPoint(DataType data);//É¾³ıÖ¸¶¨µÄÊı¾İ
-	void DeleteAtHead();//ÔÚÍ·²¿É¾³ı½Úµã
+	LinkList();//æ„å»ºä¸€ä¸ªå•é“¾è¡¨
+	~LinkList();//é”€æ¯ä¸€ä¸ªå•é“¾è¡¨
+	void CreatList(int n);//åˆ›å»ºä¸€ä¸ªå•é“¾è¡¨
+	void TravelList();//ä¾¿åˆ©å•é“¾è¡¨
+	int GetLength();//è·å–çº¿æ€§è¡¨é•¿åº¦
+	bool IsEmpty();//åˆ¤æ–­é“¾è¡¨æ˜¯å¦ä¸ºç©º
+	ElemType * Find(DataType data);//æŸ¥æ‰¾ç»“ç‚¹
+	void InsertAtEnd(DataType data);//å°¾éƒ¨æ’å…¥
+	void InsertAtHead(DataType data);//é¦–éƒ¨æ’å…¥
+	void InsertAtIndex(DataType data,int n);//æŒ‡å®šä½ç½®æ’å…¥
+	void DeleteAtEnd();//åœ¨å°¾éƒ¨åˆ é™¤å…ƒç´ 
+	void DeleteAll();//åˆ é™¤å…¨éƒ¨å…ƒç´ 
+	void DeleteAtPoint(DataType data);//åˆ é™¤æŒ‡å®šçš„æ•°æ®
+	void DeleteAtHead();//åœ¨å¤´éƒ¨åˆ é™¤èŠ‚ç‚¹
 private:
-	ElemType *head;//Í·½Úµã
+	ElemType *head;//å¤´èŠ‚ç‚¹
 };
 
 
 LinkList::LinkList() {
 	head = new ElemType;
-	head->data = 0;//½«Í·½ÚµãµÄÊı¾İÓò¶¨ÒåÎª0
-	head -> next = NULL;//½«Í·½ÚµãµÄÏÂÒ»¸ö¶¨ÒåÎªNULL
+	head->data = 0;//å°†å¤´èŠ‚ç‚¹çš„æ•°æ®åŸŸå®šä¹‰ä¸º0
+	head -> next = NULL;//å°†å¤´èŠ‚ç‚¹çš„ä¸‹ä¸€ä¸ªå®šä¹‰ä¸ºNULL
 }
 
 LinkList::~LinkList(){
-	delete head;//É¾³ıÍ·½Úµã
+	delete head;//åˆ é™¤å¤´èŠ‚ç‚¹
 }
 
-//´´½¨Ò»¸öµ¥Á´±í
+//åˆ›å»ºä¸€ä¸ªå•é“¾è¡¨
 void LinkList::CreatList(int n)
 {
 	ElemType *pnew, *ptemp;
 	ptemp = head;
-	if (n < 0) {//ÊäÈëµÄÖµÓĞÎóÊ±£¬´¦ÀíÒì³£
-		cout << "ÊäÈëµÄÖµÓĞÎó" << endl;
+	if (n < 0) {//è¾“å…¥çš„å€¼æœ‰è¯¯æ—¶ï¼Œå¤„ç†å¼‚å¸¸
+		cout << "è¾“å…¥çš„å€¼æœ‰è¯¯" << endl;
 		exit(EXIT_FAILURE);
 	}
-	for (int i = 0; i < n; i++) {//½«ÖµÒ»¸öÒ»¸ö²åÈëµ½µ¥Á´±íÖĞ
+	for (int i = 0; i < n; i++) {//å°†å€¼ä¸€ä¸ªä¸€ä¸ªæ’å…¥åˆ°å•é“¾è¡¨ä¸­
 		pnew = new ElemType;
-		cout << "ÇëÊäÈëµÚ" << i + 1 << "¸öÖµ";
+		cout << "è¯·è¾“å…¥ç¬¬" << i + 1 << "ä¸ªå€¼";
 		cin >> pnew->data;
-		pnew->next = NULL;//ĞÂ½ÚµãµÄÏÂÒ»¸öµØÖ·ÎªNULL
-		ptemp -> next = pnew;//µ±Ç°½ÚµãµÄÏÂÒ»¸öµØÖ·ÉèÎªĞÂ½Úµã
-		ptemp = pnew;//½«µ±Ç°½áµãÉèÎªĞÂ½Úµã
+		pnew->next = NULL;//æ–°èŠ‚ç‚¹çš„ä¸‹ä¸€ä¸ªåœ°å€ä¸ºNULL
+		ptemp -> next = pnew;//å½“å‰èŠ‚ç‚¹çš„ä¸‹ä¸€ä¸ªåœ°å€è®¾ä¸ºæ–°èŠ‚ç‚¹
+		ptemp = pnew;//å°†å½“å‰ç»“ç‚¹è®¾ä¸ºæ–°èŠ‚ç‚¹
 	}
 }
 
 void LinkList::TravelList()
 {
-	if (head == NULL || head->next == NULL) cout << "Á´±íÎª¿Õ£¡" << endl;
+	if (head == NULL || head->next == NULL) cout << "é“¾è¡¨ä¸ºç©ºï¼" << endl;
 	ElemType *p = head;
 	while (p->next != NULL) {
 		p = p->next;
@@ -98,7 +98,7 @@ ElemType * LinkList::Find(DataType data)
 {
 	ElemType *p = head;
 	if (p == NULL) {
-		cout << "´ËÁ´±íÎª¿ÕÁ´±í" << endl;
+		cout << "æ­¤é“¾è¡¨ä¸ºç©ºé“¾è¡¨" << endl;
 		return ERROR;
 	}
 	else {
@@ -136,7 +136,7 @@ void LinkList::InsertAtHead(DataType data)
 void LinkList::InsertAtIndex(DataType data,int n)
 {
 	if (n<1 || n>GetLength())
-		cout << "ÊäÈëµÄÖµÓĞÎó" << endl;
+		cout << "è¾“å…¥çš„å€¼æœ‰è¯¯" << endl;
 	else {
 		ElemType *ptemp = new ElemType;
 		ptemp->data = data;
@@ -155,7 +155,7 @@ void LinkList::DeleteAtEnd()
 {
 	ElemType *p = head;
 	ElemType *ptemp = NULL;
-	if (p->next == NULL) cout << "µ¥Á´Îª¿Õ" << endl;
+	if (p->next == NULL) cout << "å•é“¾ä¸ºç©º" << endl;
 	else {
 		while (p->next != NULL) {
 			ptemp = p;
@@ -198,7 +198,7 @@ void LinkList::DeleteAtPoint(DataType data)
 void LinkList::DeleteAtHead()
 {
 	ElemType *p = head;
-	if (p == NULL || p->next == NULL) cout << "¸ÃÁ´±íÎª¿Õ" << endl;
+	if (p == NULL || p->next == NULL) cout << "è¯¥é“¾è¡¨ä¸ºç©º" << endl;
 	else {
 		ElemType *ptemp = NULL;
 		p = p->next;
@@ -213,16 +213,16 @@ void LinkList::DeleteAtHead()
 int main() {
 	LinkList l;
 	int i;
-	cout << "1.´´½¨µ¥Á´±í   2.±éÀúµ¥Á´±í   3.»ñÈ¡µ¥Á´±íµÄ³¤¶È   4.ÅĞ¶Ïµ¥Á´±íÊÇ·ñÎª¿Õ   5.»ñÈ¡½Úµã\n";
-	cout << "6.ÔÚÎ²²¿²åÈëÖ¸¶¨ÔªËØ   7.ÔÚÖ¸¶¨Î»ÖÃ²åÈëÖ¸¶¨ÔªËØ   8.ÔÚÍ·²¿²åÈëÖ¸¶¨ÔªËØ\n";
-	cout << "9.ÔÚÎ²²¿É¾³ıÔªËØ   10.É¾³ıËùÓĞÔªËØ   11.É¾³ıÖ¸¶¨ÔªËØ   12.ÔÚÍ·²¿É¾³ıÔªËØ   0.ÍË³ö" << endl;
+	cout << "1.åˆ›å»ºå•é“¾è¡¨   2.éå†å•é“¾è¡¨   3.è·å–å•é“¾è¡¨çš„é•¿åº¦   4.åˆ¤æ–­å•é“¾è¡¨æ˜¯å¦ä¸ºç©º   5.è·å–èŠ‚ç‚¹\n";
+	cout << "6.åœ¨å°¾éƒ¨æ’å…¥æŒ‡å®šå…ƒç´    7.åœ¨æŒ‡å®šä½ç½®æ’å…¥æŒ‡å®šå…ƒç´    8.åœ¨å¤´éƒ¨æ’å…¥æŒ‡å®šå…ƒç´ \n";
+	cout << "9.åœ¨å°¾éƒ¨åˆ é™¤å…ƒç´    10.åˆ é™¤æ‰€æœ‰å…ƒç´    11.åˆ é™¤æŒ‡å®šå…ƒç´    12.åœ¨å¤´éƒ¨åˆ é™¤å…ƒç´    0.é€€å‡º" << endl;
 	do{
-		cout << "ÇëÊäÈëÒªÖ´ĞĞµÄ²Ù×÷:" << endl;
+		cout << "è¯·è¾“å…¥è¦æ‰§è¡Œçš„æ“ä½œ:" << endl;
 		cin >> i;
 		switch (i) {
 			case 1:
 				int n;
-				cout << "ÇëÊäÈëµ¥Á´±íµÄ³¤¶È£º";
+				cout << "è¯·è¾“å…¥å•é“¾è¡¨çš„é•¿åº¦ï¼š";
 				cin >> n;
 				l.CreatList(n);
 				break;
@@ -230,36 +230,36 @@ int main() {
 				l.TravelList();
 				break;
 			case 3:
-				cout << "¸Ãµ¥Á´±íµÄ³¤¶È" << l.GetLength() << endl;
+				cout << "è¯¥å•é“¾è¡¨çš„é•¿åº¦" << l.GetLength() << endl;
 				break;
 			case 4:
-				if (l.IsEmpty() == 1) cout << "¸Ãµ¥Á´±íÎª¿Õ" << endl;
-				else cout << "¸Ãµ¥Á´±í²»ÊÇ¿Õ±í" << endl;
+				if (l.IsEmpty() == 1) cout << "è¯¥å•é“¾è¡¨ä¸ºç©º" << endl;
+				else cout << "è¯¥å•é“¾è¡¨ä¸æ˜¯ç©ºè¡¨" << endl;
 				break;
 			case 5:
 				DataType data;
-				cout << "ÇëÊäÈëÒª»ñÈ¡½ÚµãµÄÖµ£º";
+				cout << "è¯·è¾“å…¥è¦è·å–èŠ‚ç‚¹çš„å€¼ï¼š";
 				cin >> data;
-				cout << "¸Ã½ÚµãµÄÖµÎª:" << l.Find(data)->data << endl;
+				cout << "è¯¥èŠ‚ç‚¹çš„å€¼ä¸º:" << l.Find(data)->data << endl;
 				break;
 			case 6:
 				DataType endData;
-				cout << "ÇëÊäÈëÒªÔÚÎ²²¿²åÈëµÄÖµ: ";
+				cout << "è¯·è¾“å…¥è¦åœ¨å°¾éƒ¨æ’å…¥çš„å€¼: ";
 				cin >> endData;
 				l.InsertAtEnd(endData);
 				break;
 			case 7:
 				DataType pointData;
 				int index;
-				cout << "ÇëÊäÈëÒª²åÈëµÄÊı¾İ: ";
+				cout << "è¯·è¾“å…¥è¦æ’å…¥çš„æ•°æ®: ";
 				cin >> pointData;
-				cout << "ÇëÊäÈëÒª²åÈëÊı¾İµÄÎ»ÖÃ: ";
+				cout << "è¯·è¾“å…¥è¦æ’å…¥æ•°æ®çš„ä½ç½®: ";
 				cin >> index;
 				l.InsertAtIndex(pointData, index);
 				break;
 			case 8:
 				DataType headData;
-				cout << "ÇëÊäÈëÒªÔÚÍ·²¿²åÈëµÄÖµ: ";
+				cout << "è¯·è¾“å…¥è¦åœ¨å¤´éƒ¨æ’å…¥çš„å€¼: ";
 				cin >> headData;
 				l.InsertAtHead(headData);
 				break;
@@ -271,7 +271,7 @@ int main() {
 				break;
 			case 11:
 				DataType pointDeleteData;
-				cout << "ÇëÊäÈëÒªÉ¾³ıµÄÊı¾İ: ";
+				cout << "è¯·è¾“å…¥è¦åˆ é™¤çš„æ•°æ®: ";
 				cin >> pointDeleteData;
 				l.DeleteAtPoint(pointDeleteData);
 				break;
